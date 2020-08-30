@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercícios Interação Dom</title>
+  </head>
+  <body>
+    <h1 onclick="">Prática de Interação DOM</h1>
+
+    <a href="interacao2.html">Exercício 2</a>
+
+    <div id="teste">
+      <p>Exercício prático - aula Lógica de Programação - Página 1</p>
+      <br />
+      <p style="color: rgb(2, 71, 69)">Olá, Mundo!</p>
+      <p style="color: #1f618d">Cookies ativados?</p>
+      <button onclick="mostrarCookies()">Teste</button>
+      <p id="cookie"></p>
+
+      <p style="color: green" onclick="history.forward()">
+        Teste forward para interação
+      </p>
+      <!-- window se referencia ao dom -->
+    </div>
+
+    <div id="telas">
+      <h3>Window e Screen</h3>
+      <p id="demo">Window Width</p>
+      <p id="demo2">Window Height</p>
+      <br />
+      <p id="demo3">Screen Width</p>
+      <p id="demo4">Screen Height</p>
+    </div>
+  </body>
+  <script>
+    function mostrarCookies() {
+      var cookies = "Cookies ativados: " + navigator.cookieEnabled;
+      document.getElementById("cookie").innerHTML = cookies;
+    }
+
+    function tamanhoTelas() {
+      var windowWidth = "Screen Window Widht: " + window.innerWidth;
+      document.getElementById("demo").innerHTML = windowWidth + "x";
+
+      var windowHeight = "Screen Window Height: " + window.innerHeight;
+      document.getElementById("demo2").innerHTML = windowHeight + "x";
+
+      var screenWidth = "Available Width: " + window.screen.availWidth;
+      document.getElementById("demo3").innerHTML = screenWidth + "x";
+
+      var screenHeight = "Available Height: " + screen.availHeight;
+      document.getElementById("demo4").innerHTML = screenHeight + "x";
+    }
+
+    tamanhoTelas();
+
+    window.addEventListener("resize", function () {
+      tamanhoTelas();
+    });
+
+    function myFunction() {
+      var x = "Cookies enabled: " + navigator.cookieEnabled;
+      document.getElementById("demo").innerHTML = x;
+    }
+  </script>
+</html>
